@@ -30,6 +30,7 @@ The following generators are available on this platform:
 </pre>
 
 You can create an Xcode project with:
+
 	cmake -G Xcode (path to CMakeLists.txt file)
 	
 	
