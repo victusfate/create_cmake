@@ -17,7 +17,7 @@ Then from the project root type
 	cd build
 	cmake ..
 	
-And cmake will determine a default build system for your architecture. 
+And cmake will determine a default build system for your architecture. For mine (OS X Lion) the default is make.
 
 You can specificy specific builds by typing:
 	cmake
