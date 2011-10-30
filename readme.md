@@ -32,7 +32,7 @@ The following generators are available on this platform:
 	KDevelop3 - Unix Makefiles  = Generates KDevelop 3 project files.
 </pre>
 
-You can create an Xcode project with:
+For example, you may create an Xcode project with:
 
 	cmake -G Xcode (path to CMakeLists.txt file)
 	
