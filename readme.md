@@ -1,4 +1,4 @@
-*create_cmake*
+<h1>create_cmake.rb</h1>
 This is a simple ruby script and sample lib which takes
 a list of libraries (with paths) and executables and generates a CMakeLists.txt file. 
 The CMakeLists.txt file will generate build files on many platforms include linux, os x, windows in the 
@@ -20,13 +20,13 @@ You can specificy specific builds by typing:
 	cmake
 This yields a listing of supported platforms. Here's an example of what showed up on my home system:
 The following generators are available on this platform:
-  Unix Makefiles              = Generates standard UNIX makefiles.
-  Xcode                       = Generate XCode project files.
-  CodeBlocks - Unix Makefiles = Generates CodeBlocks project files.
-  Eclipse CDT4 - Unix Makefiles
+Unix Makefiles              = Generates standard UNIX makefiles.
+*   Xcode                       = Generate XCode project files.
+*   CodeBlocks - Unix Makefiles = Generates CodeBlocks project files.
+*   Eclipse CDT4 - Unix Makefiles
                               = Generates Eclipse CDT 4.0 project files.
-  KDevelop3                   = Generates KDevelop 3 project files.
-  KDevelop3 - Unix Makefiles  = Generates KDevelop 3 project files.
+*   KDevelop3                   = Generates KDevelop 3 project files.
+*   KDevelop3 - Unix Makefiles  = Generates KDevelop 3 project files.
 
 You can create an Xcode project with:
 	cmake -G Xcode (path to CMakeLists.txt file)
