@@ -20,13 +20,12 @@ You can specificy specific builds by typing:
 	cmake
 This yields a listing of supported platforms. Here's an example of what showed up on my home system:
 The following generators are available on this platform:
-Unix Makefiles              = Generates standard UNIX makefiles.
-*   Xcode                       = Generate XCode project files.
-*   CodeBlocks - Unix Makefiles = Generates CodeBlocks project files.
-*   Eclipse CDT4 - Unix Makefiles
-                              = Generates Eclipse CDT 4.0 project files.
-*   KDevelop3                   = Generates KDevelop 3 project files.
-*   KDevelop3 - Unix Makefiles  = Generates KDevelop 3 project files.
+*	Unix Makefiles              = Generates standard UNIX makefiles.
+*	Xcode                       = Generate XCode project files.
+*	CodeBlocks - Unix Makefiles = Generates CodeBlocks project files.
+*	Eclipse CDT4 - Unix Makefiles = Generates Eclipse CDT 4.0 project files.
+*	KDevelop3                   = Generates KDevelop 3 project files.
+*	KDevelop3 - Unix Makefiles  = Generates KDevelop 3 project files.
 
 You can create an Xcode project with:
 	cmake -G Xcode (path to CMakeLists.txt file)
