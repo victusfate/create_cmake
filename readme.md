@@ -20,6 +20,7 @@ You can specificy specific builds by typing:
 	cmake
 This yields a listing of supported platforms. Here's an example of what showed up on my home system:
 The following generators are available on this platform:
+
 *	Unix Makefiles              = Generates standard UNIX makefiles.
 *	Xcode                       = Generate XCode project files.
 *	CodeBlocks - Unix Makefiles = Generates CodeBlocks project files.
