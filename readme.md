@@ -9,11 +9,14 @@ In this example to generate the CMakeLists.txt file first a lib.list and an exec
 for examples of formats (file lists but order matters, put your latest dependency last on the lib list).
 
 In the project directory run:
+
 	ruby create_cmake.rb lib.list exec.list test > CMakeLists.txt
 
 Then from the project root type
+
 	cd build
 	cmake ..
+	
 And cmake will determine a default build system for your architecture. 
 
 You can specificy specific builds by typing:
