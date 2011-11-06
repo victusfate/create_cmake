@@ -2,7 +2,7 @@
 This is a simple ruby script and sample lib which takes
 a list of libraries (with paths) and executables and generates a CMakeLists.txt file. 
 The CMakeLists.txt file will generate build files on many platforms include linux, os x, windows in the 
-form of makefiles and visual studio solutions. See (http://www.cmake.org/)[http://www.cmake.org/] for all
+form of makefiles and visual studio solutions. See [http://www.cmake.org/][http://www.cmake.org/] for all
 supported build systems.
 
 In this example to generate the CMakeLists.txt file first a lib.list and an exec.list is needed, see the included files
