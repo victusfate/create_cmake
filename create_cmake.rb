@@ -1,5 +1,6 @@
 if ARGV.size != 3
 	puts "usage: libraries_list exec_list project_name"
+	exit
 end
 
 rawlibfiles = IO.readlines(ARGV[0])
@@ -29,13 +30,7 @@ end
 
 puts "cmake_minimum_required(VERSION 2.8)"
 puts "project(#{name})"
-puts 'message(STATUS "adding include directories")'
-puts 'include_directories('
-libfiles.each do |libfile|
-	puts '	${CMAKE_SOURCE_DIR}' + '/' + libfile
-end
-puts ')'
-puts 'message(STATUS "added include directories")'
+
 libfiles.each do |libfile|
 	puts 'add_library('+File.basename(libfile)
 	Dir.glob(libfile+'/*.cpp') do |cppfile|
@@ -56,13 +51,29 @@ libfiles.each do |libfile|
 	puts ')'
 	puts 'message(STATUS "added '+libfile+' library")'
 end
+3.times { puts '' }
+puts 'message(STATUS "adding include directories")'
+puts 'include_directories('
+libfiles.each do |libfile|
+	puts '	${CMAKE_SOURCE_DIR}' + '/' + libfile
+end
+puts ')'
+puts 'message(STATUS "added include directories")'
+3.times { puts '' }
 
 exec_names = []
 execfiles.each do |execfile|
+
 	exec_base = File.basename( execfile, File.extname(execfile) )
 	exec_names << exec_base
-	puts 'add_executable('+exec_base+' '+execfile+')'
-	puts 'message(STATUS "added '+exec_base+ ' exec")'
+	
+	puts 'add_executable(' + exec_base + ' ' + execfile+')'
+  puts 'target_link_libraries(' + exec_base + ' ' + deplist.join(' ') + ' ${EXTERNAL_LIBS})'
+	puts 'message(STATUS "added ' + exec_base + ' exec and target link libraries ' + deplist.join(' ') + '")'
+	puts ''
 end
-puts 'target_link_libraries('+exec_names.join(' ') + ' ' + deplist.join(' ')+' ${EXTERNAL_LIBS})'
+
+#puts 'target_link_libraries('+exec_names.join(' ') + ' ' + deplist.join(' ')+' ${EXTERNAL_LIBS})'
+#puts ''
+
 puts 'set(CMAKE_BUILD_TYPE Release)'
