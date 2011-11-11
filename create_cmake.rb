@@ -30,6 +30,7 @@ end
 
 puts "cmake_minimum_required(VERSION 2.8)"
 puts "project(#{name})"
+puts 'SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)'
 
 libfiles.each do |libfile|
 	puts 'add_library('+File.basename(libfile)
@@ -50,6 +51,8 @@ libfiles.each do |libfile|
 	end
 	puts ')'
 	puts 'message(STATUS "added '+libfile+' library")'
+	puts 'SET_PROPERTY(TARGET '+File.basename(libfile)+'                PROPERTY FOLDER "lib")'
+
 end
 3.times { puts '' }
 puts 'message(STATUS "adding include directories")'
