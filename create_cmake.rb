@@ -21,7 +21,12 @@ end
 
 libnames,libpaths,deplist = [],[],[]
 libfiles.each do |libfile|
-	libnames << File.basename(libfile)
+  nicklib = libfile
+  if (nicklib.gsub!('/','_')) 
+    libnames << nicklib
+  else
+    libnames << libfile
+  end
 	libpaths << File.dirname(libfile)
 	deplist.insert(0,libnames.last)
 #	puts "testing libpath #{libpaths.last} and names #{libnames.last} libfile #{libfile}"
@@ -32,8 +37,8 @@ puts "cmake_minimum_required(VERSION 2.8)"
 puts "project(#{name})"
 puts 'SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)'
 
-libfiles.each do |libfile|
-	puts 'add_library('+File.basename(libfile)
+libfiles.each_with_index do |libfile,i|
+	puts 'add_library('+libnames[i]
 	Dir.glob(libfile+'/*.cpp') do |cppfile|
 		puts '	${CMAKE_SOURCE_DIR}/'+cppfile
 	end
@@ -50,8 +55,8 @@ libfiles.each do |libfile|
 		puts '	${CMAKE_SOURCE_DIR}/'+hfile
 	end
 	puts ')'
-	puts 'message(STATUS "added '+libfile+' library")'
-	puts 'SET_PROPERTY(TARGET '+File.basename(libfile)+'                PROPERTY FOLDER "lib")'
+	puts 'message(STATUS "added '+libnames[i]+' library")'
+	puts 'SET_PROPERTY(TARGET '+libnames[i]+'                PROPERTY FOLDER "lib")'
 
 end
 3.times { puts '' }
