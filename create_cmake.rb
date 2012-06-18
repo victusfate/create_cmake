@@ -21,8 +21,8 @@ end
 
 libnames,libpaths,deplist = [],[],[]
 libfiles.each do |libfile|
-  nicklib = libfile
-  if (nicklib.gsub!('/','_')) 
+  nicklib = libfile.gsub('/','_')
+  if (nicklib) 
     libnames << nicklib
   else
     libnames << libfile
